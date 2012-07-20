@@ -1,7 +1,3 @@
-require "ptc_datamapper/version"
-
-module PtcDatamapper
-
 require 'rubygems'
 require 'csv-mapper'
 require 'active_record'
@@ -102,5 +98,3 @@ mapper.export_data(exportfile)
 end_time = Time.now.to_f * 1000
 puts 'File save successfully!'
 puts 'Time used:' << (end_time - start_time).to_s << 'ms'
-
-end
