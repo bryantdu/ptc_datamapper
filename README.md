@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+ptc_datamapper sample.csv outputfile.txt
 
 ## Contributing
 
