@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'http://rubygems.org/gems/ptc_datamapper'
 
   gem.files         = ["lib/ptc_datamapper.rb"]
-  gem.executables   << "ptc_datamapper"
+  gem.executables   << "ptc"
   gem.name          = "ptc_datamapper"
   gem.version       = PtcDatamapper::VERSION
 
