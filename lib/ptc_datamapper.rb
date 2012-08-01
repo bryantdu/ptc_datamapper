@@ -43,20 +43,20 @@ class Mapper
             map_to Person
 #           after_row lambda{|row, person| person.save}
 
-            start_at_row 1
+            start_at_row 0
             [input_id, first_name, last_name, address, city, state, zip, email, birth_month, birth_day, birth_year, ptc, date_created]
         end
         results
     end
 
     def get_cr_row
-        'CR|6|9999000024542||9289560|CLEARBNS|||7020||||||||1325|||||||||'
+        'CR|6|9999000024542||9289560|CLEARBNS|||7020||||||20120530||1325|||||||||'
     end
 
     def format_row(data)
         row = ''
         data.each {|r| row = row.to_s + "#{r}|"}
-        row
+        row = row[0..-2] 
     end
 
     def print_result
@@ -81,11 +81,11 @@ end
 
 class Person < ActiveRecord::Base
     def ptc_data
-        value_array = ['PTC', 6, self.input_id, '', '', '', 'Y','', '', self.date_created]
+        value_array = ['PTC', 6, self.input_id, '1325', '', '', 'Y','Y', '', self.date_created]
     end
 
     def na_data
-        value_array = ['NA', 6, self.input_id, '', '', '', '', '', self.first_name, '', self.last_name, '', self.address, '', '', self.city, self.state, self.zip, '', '', '', '', '', '', '', '', self.email, '', "#{self.birth_month} #{self.birth_day} #{self.birth_year}", '', '', self.date_created.gsub!(' ','|') ]
+        value_array = ['NA', 6, self.input_id, '', '', '', '', '', self.first_name, '', self.last_name, '', self.address, '', '', self.city, self.state, self.zip, '', '', '', '', '', '', '', '', self.email, '', '', '', '', self.date_created.gsub!(' ','|') ]
     end
 end
 
